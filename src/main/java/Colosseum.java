@@ -100,6 +100,7 @@ public class Colosseum {
             attack = myScan.nextInt();
         }
         attack = tempPokemon.attackLevel;
+        System.out.println("Enter your defense level (1-" + (TOTAL_ATTACK_DEFENSE - attack) + "): ");
         int defense = myScan.nextInt();
         while (defense < 1 || defense > TOTAL_ATTACK_DEFENSE - attack) {
             System.out.println("Sorry. The defense level must be between 1 and " + (TOTAL_ATTACK_DEFENSE - attack)
