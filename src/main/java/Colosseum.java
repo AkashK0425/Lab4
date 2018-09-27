@@ -91,7 +91,7 @@ public class Colosseum {
             System.out.println("Sorry. Hit points must be between 1 and " + MAX_HIT_POINTS + ":");
             hp = myScan.nextInt();
         }
-        hp = tempPokemon.hitPoints;
+        tempPokemon.hitPoints = hp;
         System.out.println("Split fifty points between attack level and defense level." + "\n" + "Enter your attack"
                 + " level (1-49): ");
         int attack = myScan.nextInt();
@@ -99,15 +99,16 @@ public class Colosseum {
             System.out.println("Sorry. The attack level must be between 1 and " + MAX_ATTACK_LEVEL + ": ");
             attack = myScan.nextInt();
         }
-        attack = tempPokemon.attackLevel;
-        System.out.println("Enter your defense level (1-" + (TOTAL_ATTACK_DEFENSE - attack) + "): ");
+        tempPokemon.attackLevel = attack;
+        int maxDefense = TOTAL_ATTACK_DEFENSE - attack;
+        System.out.println("Enter your defense level (1-" + maxDefense + "): ");
         int defense = myScan.nextInt();
-        while (defense < 1 || defense > TOTAL_ATTACK_DEFENSE - attack) {
-            System.out.println("Sorry. The defense level must be between 1 and " + (TOTAL_ATTACK_DEFENSE - attack)
+        while (defense < 1 || defense > maxDefense) {
+            System.out.println("Sorry. The defense level must be between 1 and " + maxDefense
                     + ": ");
             defense = myScan.nextInt();
         }
-        defense = tempPokemon.defenseLevel;
+        tempPokemon.defenseLevel = defense;
         return tempPokemon;
     }
 
